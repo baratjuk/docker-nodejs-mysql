@@ -1,0 +1,17 @@
+import express from 'express'
+import getItems from './routes/getItems'
+// import addItem from './routes/addItem'
+// import updateItem from './routes/updateItem'
+// import deleteItem from './routes/deleteItem'
+
+const app = express()
+
+app.use(express.json());
+
+app.get('/items', getItems)
+// app.post('/items', addItem);
+// app.put('/items/:id', updateItem);
+// app.delete('/items/:id', deleteItem);
+
+let port = process.env.API_PORT
+app.listen(port, () => console.log(`Listening on port ${port}`))

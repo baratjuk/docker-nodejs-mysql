@@ -1,21 +1,21 @@
 version: '1.0'
 services:
 
-  # api:
-  #   container_name: api_v1
-  #   image: node:20
-  #   tty: true
-  #   build: ./api        
-  #   ports:
-  #    - 5080:5080
-  #   depends_on:
-  #    - mysql 
-  #   volumes:
-  #    - .:/opt/src
-  #   working_dir: /opt/src/api
-  #   env_file:
-  #    - .env 
-  #   restart: always  
+  api:
+    container_name: api_v1
+    image: node:20
+    tty: true
+    build: ./api        
+    ports:
+     - 5080:5080
+    depends_on:
+     - mysql 
+    volumes:
+     - .:/opt/src
+    working_dir: /opt/src/api
+    env_file:
+     - .env 
+    restart: always  
 
   # ui:
   #   container_name: ui_v1
