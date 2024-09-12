@@ -1,16 +1,24 @@
-import mysql from 'mysql';
+import mysql from 'mysql2';
 
 class Db {
 
+    // db
     dbConnect
 
     constructor() {
         super.constructor()
+        let host = process.env.DATABASE_HOST
+        let user = process.env.DATABASE_ROOT_USER
+        let password = process.env.DATABASE_ROOT_PASSWORD
+        let database = process.env.DATABASE_NAME
+        let port = process.env.DATABASE_PORT
+        console.log(`${host} ${port} ${user} ${password} ${database}`)
         this.dbConnect = mysql.createConnection({
-            host: process.env.DATABASE_HOST,
-            user: process.env.DATABASE_USERNAME,
-            password: process.env.DATABASE_PASSWORD,
-            database: process.env.DATABASE_NAME
+            host,
+            port,
+            user,
+            password,
+            database
         })
         this.dbConnect.connect((err) => {
             if (err) {
@@ -18,6 +26,7 @@ class Db {
             }
             console.log("DB Connected!");
         })
+        // this.db = this
     }
 
     async select(sql) {

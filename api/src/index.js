@@ -1,8 +1,8 @@
-import express from 'express'
-import getItems from './routes/getItems'
-// import addItem from './routes/addItem'
-// import updateItem from './routes/updateItem'
-// import deleteItem from './routes/deleteItem'
+import express from 'express';
+import getItems from './routes/getItems.js';
+// import addItem from './routes/addItem.js';
+// import updateItem from './routes/updateItem.js';
+// import deleteItem from './routes/deleteItem.js';
 
 const app = express()
 
