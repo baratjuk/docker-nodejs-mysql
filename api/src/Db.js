@@ -40,19 +40,19 @@ class Db {
         return tableData
     }
 
-    insert(sql) {
+    update(sql) {
         this.dbConnect.query(sql, (err, result) => {
             if (err) {
-                console.log('insert sql : ' + sql)
-                console.log('insert error : ' + err.message)
+                console.log('update sql : ' + sql)
+                console.log('update error : ' + err.message)
             }
         })
     }
 
     upsert(updateSql, insertSql) {
-        this.dbConnect.query(updateSql, (err1, result) => {
+        this.dbConnect.query(updateSql, (err1, result1) => {
             if (err1) {
-                this.dbConnect.query(insertSql, (err2, result) => { 
+                this.dbConnect.query(insertSql, (err2, result2) => { 
                 })
             }
         })
@@ -60,6 +60,21 @@ class Db {
 
     async getItems() {
         let ret = await this.select(`SELECT * FROM table1;`)
+        return ret
+    }
+
+    async getItem(id) {
+        let ret = await this.select(`SELECT * FROM table1 WHERE id = ${id}`)
+        return ret
+    }
+
+    addItem(name) {
+        let ret = this.update(`INSERT INTO table1 (name1) VALUES('${name}')`)
+        return ret
+    }
+
+    deleteItem(id) {
+        let ret = this.update(`DELETE FROM table1 WHERE id = ${id}`)
         return ret
     }
 
