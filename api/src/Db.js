@@ -2,7 +2,16 @@ import mysql from 'mysql2';
 
 class Db {
 
+    static instance
+
     dbConnect
+
+    static getDB() {
+        if(Db.instance == null) {
+            Db.instance = new Db()
+        }
+        return Db.instance
+    }
 
     constructor() {
         super.constructor()
