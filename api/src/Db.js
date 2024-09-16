@@ -7,10 +7,10 @@ class Db {
     dbConnect
 
     static getDB() {
-        if(Db.instance == null) {
-            Db.instance = new Db()
+        if(this.instance == null) {
+            this.instance = new Db()
         }
-        return Db.instance
+        return this.instance
     }
 
     constructor() {
