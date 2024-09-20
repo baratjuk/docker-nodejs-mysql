@@ -82,6 +82,11 @@ class Db {
         return ret
     }
 
+    updateItem(id, name) {
+        let ret = this.update(`UPDATE table1 SET name1 = '${name}' WHERE id = ${id}`)
+        return ret
+    }
+
     deleteItem(id) {
         let ret = this.update(`DELETE FROM table1 WHERE id = ${id}`)
         return ret
