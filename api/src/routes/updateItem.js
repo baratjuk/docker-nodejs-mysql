@@ -5,7 +5,7 @@ const updateItem = async (req, res) => {
     let {name} = req.body
     console.log(JSON.stringify(req.params, null, 4))
     Db.getDB().uodateItem(id, name);
-    res.send({});
+    res.send({error:0});
 }
 
 export default updateItem;
